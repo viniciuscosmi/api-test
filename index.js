@@ -1,12 +1,8 @@
-var express = require("express");
-var app = express();
+const express = require("express");
+const app = express();
 
-app.listen(3000, () => {
- console.log("Server running on port 3000");
-});
-
-app.get("/user", (req, res, next) => {
-  res.json([
+app.get("/", (req, res) => {
+  res.send([
     {
       'id': 1,
       'name': 'Jose',
@@ -27,3 +23,5 @@ app.get("/user", (req, res, next) => {
     }
   ]);
  });
+
+ app.listen(process.env.PORT || 3000);
